@@ -1,0 +1,29 @@
+﻿@model DatosCarro
+@{
+    ViewData["Title"] = "Lista de Carros";
+}
+
+<h3>The Dealer </h3>
+<h6><a asp-controller="Home" asp-action="Index">¿Desea agregar uno nuevo?</a></h6>
+
+<table class="table">
+    <tr class="thead-light">
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Color</th>
+        <th>Marca</th>
+        <th>Chasis</th>
+    </tr>
+
+    @foreach (var carro in Model.Carros)
+    {
+        <tr>
+            <td>@(carro.Id + 1)</td>
+            <td>@carro.Nombre</td>
+            <td>@carro.Color</td>
+            <td>@carro.Marca</td>
+            <td>@carro.Chasis</td>
+        </tr>
+    }
+
+</table>

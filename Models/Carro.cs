@@ -29,5 +29,20 @@ namespace DealerASP.Models
         public String Chasis { get; set; }
 
     }
-
+    public class DatosCarro
+    {
+        private static List<Carro> carro;
+        //public IList<Carro> carros = new List<Carro>();
+        public List<Carro> Carros
+        {
+            get
+            {
+                if (carro == null)
+                {
+                    carro = new List<Carro>();
+                }
+                return carro;
+            }
+        }
+    }
 }

@@ -12,12 +12,10 @@ namespace DealerASP.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-       
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
- 
         }
         
         public IActionResult Index()
@@ -29,5 +27,14 @@ namespace DealerASP.Controllers
         {
             return View();
         } 
+
+        public IActionResult Carros(DatosCarro datosCarro, Carro carro)
+        {
+            var ID = datosCarro.Carros.Count > 0 ? datosCarro.Carros.Max(x => x.Id) + 1 : 0;
+            carro.Id = ID;
+
+            datosCarro.Carros.Add(carro);
+            return View(datosCarro);
+        }
     }
 }
